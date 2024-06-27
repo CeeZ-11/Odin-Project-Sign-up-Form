@@ -18,6 +18,8 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  overflow: hidden;
 }
 
 img,
@@ -25,7 +27,6 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
   max-width: 100%;
 }
 
@@ -49,4 +50,62 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+#side-bar {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: url("images/solo-leveling.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#logo-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20lvh;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: 20%;
+}
+
+#logo-text h1 {
+  text-shadow: 2px 2px 4px var(--color-shadow-text);
+  color: var(--color-base-text);
+  font-size: 3em;
+  font-family: "Anime Ace";
+}
+
+#main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100lvh;
+  background-color: var(--color-base-bg);
+  color: var(--color-base-text);
+}
+
+#head {
+  width: 100%;
+  padding: 5%;
+}
+
+#sign-up-form {
+  width: 100%;
+  height: auto;
+  background-color: rgb(36, 36, 36);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 5%;
+}
+#foot {
+  padding: 5%;
 }

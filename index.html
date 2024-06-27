@@ -4,33 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin Project: Sign-up Form</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div id="side-bar">
-      <div id="logo">Cee</div>
+      <div id="logo-text"><h1>CEE</h1></div>
     </div>
     <div id="main-container">
-      <p>Sign up now to unlock the largest online library of cool manhwas!</p>
-      <p>It only takes a minute.</p>
-      <fieldset>
-        <legend>Let's do this!</legend>
-        <label for="fname"></label>
-        <input type="text" id="fname" name="fname" />
-        <label for="lname"></label>
-        <input type="text" id="lname" name="lname" />
-        <label for="email"></label>
-        <input type="email" id="email" name="email" />
-        <label for="pnumber"></label>
-        <input type="tel" id="pnumber" name="pnumber" />
-        <label for="password"></label>
-        <input type="password" id="password" name="password" />
-        <label for="conPass"></label>
-        <input type="password" id="conPass" name="conPass" />
-      </fieldset>
-      <button type="submit">Create Account</button>
-      <p>Already have an account? <a id="login" href="">Log in</a></p>
+      <div id="head">
+        <p>Sign up now to unlock the largest online library of cool manhwas!</p>
+        <br />
+        <p>It only takes a minute.</p>
+      </div>
+      <div id="sign-up-form">
+        <fieldset>
+          <legend>Let's do this!</legend>
+          <label for="fname" data-help="you need help?"></label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="First Name"
+            required
+          />
+          <label for="lname" data-help="you need help?"></label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            placeholder="Last Name"
+            required
+          />
+          <label for="email" data-help="you need help?"></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <label for="pnumber" data-help="you need help?"></label>
+          <input
+            type="tel"
+            id="pnumber"
+            name="pnumber"
+            placeholder="Phone Number"
+            required
+          />
+          <label for="password" data-help="you old?"></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <label for="conPass" data-help="you old?"></label>
+          <input
+            type="password"
+            id="conPass"
+            name="conPass"
+            placeholder="Confirm Password"
+            required
+          />
+        </fieldset>
+      </div>
+      <div id="foot">
+        <button type="submit" name="submit" id="submit">Create Account</button>
+        <p>Already have an account? <a id="login" href="">Log in</a></p>
+      </div>
     </div>
   </body>
 </html>
