@@ -8,71 +8,106 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="side-bar">
-      <div id="logo-text"><h1>CEE</h1></div>
-    </div>
-    <div id="main-container">
-      <div id="head">
-        <p>Sign up now to unlock the largest online library of cool manhwas!</p>
-        <br />
-        <p>It only takes a minute.</p>
+    <div id="container">
+      <div id="side-bar">
+        <div id="logo-text"><h1>CEE</h1></div>
       </div>
-      <div id="sign-up-form">
-        <fieldset>
-          <legend>Let's do this!</legend>
-          <label for="fname" data-help="you need help?"></label>
-          <input
-            type="text"
-            id="fname"
-            name="fname"
-            placeholder="First Name"
-            required
-          />
-          <label for="lname" data-help="you need help?"></label>
-          <input
-            type="text"
-            id="lname"
-            name="lname"
-            placeholder="Last Name"
-            required
-          />
-          <label for="email" data-help="you need help?"></label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            required
-          />
-          <label for="pnumber" data-help="you need help?"></label>
-          <input
-            type="tel"
-            id="pnumber"
-            name="pnumber"
-            placeholder="Phone Number"
-            required
-          />
-          <label for="password" data-help="you old?"></label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <label for="conPass" data-help="you old?"></label>
-          <input
-            type="password"
-            id="conPass"
-            name="conPass"
-            placeholder="Confirm Password"
-            required
-          />
-        </fieldset>
-      </div>
-      <div id="foot">
-        <button type="submit" name="submit" id="submit">Create Account</button>
-        <p>Already have an account? <a id="login" href="">Log in</a></p>
+      <div id="content">
+        <div id="head">
+          <p>
+            Sign up now to unlock the largest online library of cool manhwas!
+          </p>
+          <br />
+          <p>It only takes a minute.</p>
+        </div>
+        <div id="sign-up-form">
+          <fieldset>
+            <legend>Let's do this!</legend>
+            <div id="comment-fname">
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="First Name"
+                pattern="^[^0-9]+$"
+                size="15"
+                maxlength="245"
+                required
+              />
+              <label for="fname" data-help="you need help?">First Name</label>
+            </div>
+            <div id="comment-lname">
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                size="15"
+                maxlength="245"
+                placeholder="Last Name"
+                required
+              />
+              <label for="lname" data-help="you need help?">Last Name</label>
+            </div>
+            <div id="comment-email">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                size="15"
+                maxlength="245"
+                placeholder="Email"
+                required
+              />
+              <label for="email" data-help="you need help?">Email</label>
+            </div>
+            <div id="comment-phone">
+              <input
+                type="tel"
+                id="pnumber"
+                name="pnumber"
+                size="15"
+                maxlength="245"
+                placeholder="Phone Number"
+                required
+              />
+              <label for="pnumber" data-help="you need help?"
+                >Phone Number</label
+              >
+            </div>
+            <div id="comment-pass">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                size="15"
+                maxlength="245"
+                placeholder="Password"
+                required
+              />
+              <label for="password" data-help="you old?">Password</label>
+            </div>
+            <div id="comment-cpass">
+              <input
+                type="password"
+                id="conPass"
+                name="conPass"
+                size="15"
+                maxlength="245"
+                placeholder="Confirm Password"
+                required
+              />
+              <label for="conPass" data-help="you old?">Confirm Password</label>
+            </div>
+          </fieldset>
+        </div>
+        <div id="foot">
+          <div id="submit-button">
+            <button type="submit" name="submit" id="submit">
+              Create Account
+            </button>
+          </div>
+          <p>Already have an account? <a id="login" href="">Log in</a></p>
+        </div>
       </div>
     </div>
   </body>

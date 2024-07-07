@@ -7,12 +7,13 @@
   margin: 0;
   font-family: "Norse Bold", "Helvetica Neue", Helvetica, Arial;
   --border-btn: 1px solid rgb(220, 220, 220);
-  --color-base-bg: rgb(18, 18, 18);
+  --color-base-bg: rgb(14, 13, 13);
   --color-base-text: rgb(240, 240, 240);
   --color-shadow-text: rgb(125, 54, 185);
   --color-btn-bg: rgb(36, 36, 36);
   --error-color: rgb(255, 55, 55);
   --link-color: rgb(36, 36, 36);
+  --input-bg-color-focus: rgb(53, 53, 53);
 }
 
 body {
@@ -20,6 +21,17 @@ body {
   -webkit-font-smoothing: antialiased;
   display: flex;
   overflow: hidden;
+  background-image: linear-gradient(
+    to right,
+    #060209,
+    #0a030f,
+    #0d0414,
+    #100518,
+    #12061c
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
 
 img,
@@ -52,14 +64,28 @@ h6 {
   isolation: isolate;
 }
 
+#container {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 80vh;
+  overflow: hidden;
+  box-shadow: 1px 0px 12px 3px rgba(0, 0, 0, 0.84);
+  -webkit-box-shadow: 1px 0px 12px 3px rgba(0, 0, 0, 0.84);
+  -moz-box-shadow: 1px 0px 12px 3px rgba(0, 0, 0, 0.84);
+}
+
 #side-bar {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: url("images/solo-leveling.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: start;
 }
 
 #logo-text {
@@ -75,30 +101,42 @@ h6 {
 #logo-text h1 {
   text-shadow: 2px 2px 4px var(--color-shadow-text);
   color: var(--color-base-text);
-  font-size: 3em;
+  font-size: clamp(20px, 3vw, 50px);
   font-family: "Anime Ace";
 }
 
-#main-container {
+#content {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100lvh;
+  height: 100%;
   background-color: var(--color-base-bg);
   color: var(--color-base-text);
+  font-size: clamp(8px, 2vw, 17px);
+  gap: 3%;
 }
 
 #head {
-  width: 100%;
-  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  width: 80%;
+  margin: 0;
+  font-size: clamp(12px, 2vw, 26px);
+  justify-content: center;
 }
 
 #sign-up-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
   width: 100%;
   height: auto;
   background-color: rgb(36, 36, 36);
+  align-items: center;
+  justify-content: center;
 }
 
 fieldset {
@@ -106,6 +144,198 @@ fieldset {
   padding: 0;
   margin: 5%;
 }
+
+input {
+  margin: 5px;
+  padding: 15px 5px 6px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#sign-up-form div[id^="comment"] {
+  position: relative;
+}
+
+#sign-up-form label {
+  padding: 5px 0;
+  font-size: 10px;
+  left: 0;
+  display: none;
+  position: absolute;
+  color: #8bc34a;
+  -webkit-animation: silo-fade 0.2s;
+  -moz-animation: silo-fade 0.2s;
+  animation: silo-fade 0.2s;
+  z-index: 10;
+  top: 2px;
+  left: 10px;
+}
+:focus {
+  outline: 0;
+}
+
+#sign-up-form input:focus + label,
+#sign-up-form input[required]:valid + label,
+#sign-up-form input:not(:placeholder-shown) + label {
+  display: block;
+}
+#sign-up-form input:invalid {
+  border: 1px solid #b92326;
+  background-color: rgba(185, 35, 38, 0.25);
+}
+#sign-up-form input:focus:invalid {
+  background-color: transparent;
+  border: 1px solid #b92326;
+}
+#sign-up-form input:invalid + label {
+  color: #b92326;
+}
+#sign-up-form input:invalid + label {
+  color: #b92326;
+}
+
+#sign-up-form input + label:after {
+  content: " (" attr(data-help) ")";
+  opacity: 0;
+}
+
+#sign-up-form input:focus:invalid + label:after {
+  content: " (" attr(data-help) ")";
+  animation: silo-help 100s;
+}
+#sign-up-form input:invalid + label:after {
+  content: " (" attr(data-help) ")";
+  animation: silo-help 50s;
+}
+#sign-up-form input:valid {
+  border: 1px solid #8bc34a;
+  background-color: var(--input-bg-color-focus);
+}
+#sign-up-form input:focus:valid {
+  border: 1px solid #8bc34a;
+  background-color: transparent;
+}
+#sign-up-form input:valid + label {
+  color: #8bc34a;
+}
+#sign-up-form input:placeholder-shown {
+  background-color: transparent;
+  border: 1px solid #d8d8d8;
+}
+#sign-up-form input::placeholder {
+  color: #d8d8d8;
+}
+#sign-up-form input::-webkit-input-placeholder {
+  color: #d8d8d8;
+}
+#sign-up-form input:-ms-input-placeholder {
+  color: #d8d8d8;
+}
+#sign-up-form input::-moz-placeholder {
+  color: #d8d8d8;
+}
+#sign-up-form input:focus::placeholder {
+  color: transparent;
+}
+#sign-up-form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+#sign-up-form input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+#sign-up-form input:focus::-moz-placeholder {
+  color: transparent;
+}
+
 #foot {
-  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  width: 80%;
+  gap: 10px;
+}
+
+/*Animations*/
+@-webkit-keyframes silo-fade {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1.4em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes silo-fade {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-1.4em);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+@keyframes silo-fade {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1.4em);
+    -moz-transform: translateY(-1.4em);
+    -ms-transform: translateY(-1.4em);
+    -o-transform: translateY(-1.4em);
+    transform: translateY(-1.4em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes silo-help {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes silo-help {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes silo-help {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
