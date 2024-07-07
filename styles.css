@@ -6,14 +6,16 @@
 * {
   margin: 0;
   font-family: "Norse Bold", "Helvetica Neue", Helvetica, Arial;
-  --border-btn: 1px solid rgb(220, 220, 220);
+  --border-btn: 1px solid rgb(125, 54, 185);
   --color-base-bg: rgb(14, 13, 13);
   --color-base-text: rgb(240, 240, 240);
   --color-shadow-text: rgb(125, 54, 185);
-  --color-btn-bg: rgb(36, 36, 36);
+  --color-btn-bg: rgb(53, 53, 53);
+  --color-btn: rgb(240, 240, 240);
   --error-color: rgb(255, 55, 55);
   --link-color: rgb(36, 36, 36);
   --input-bg-color-focus: rgb(53, 53, 53);
+  --base-font-size: clamp(8px, 1.5vw, 17px);
 }
 
 body {
@@ -47,6 +49,7 @@ button,
 textarea,
 select {
   font: inherit;
+  margin: 0;
 }
 
 p,
@@ -109,45 +112,50 @@ h6 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   height: 100%;
   background-color: var(--color-base-bg);
   color: var(--color-base-text);
-  font-size: clamp(8px, 2vw, 17px);
-  gap: 3%;
+  font-size: var(--base-font-size);
 }
 
 #head {
   display: flex;
   flex-direction: column;
   flex: 1 0;
-  width: 80%;
-  margin: 0;
-  font-size: clamp(12px, 2vw, 26px);
+  margin: 10px 10px 0 10px;
+  font-size: clamp(12px, 1.5vw, 26px);
   justify-content: center;
+  padding: 10px 0;
 }
 
 #sign-up-form {
-  display: flex;
-  flex-direction: column;
   flex: 1 0;
   width: 100%;
-  height: auto;
   background-color: rgb(36, 36, 36);
-  align-items: center;
-  justify-content: center;
 }
 
 fieldset {
   border: none;
-  padding: 0;
-  margin: 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+legend {
+  margin-left: 15px;
+  padding-top: 10px;
 }
 
 input {
-  margin: 5px;
   padding: 15px 5px 6px;
+  width: 100%;
+  width: calc(100% - 30px);
+  margin: 10px 15px;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -156,11 +164,28 @@ input {
 
 #sign-up-form div[id^="comment"] {
   position: relative;
+  min-height: 1px;
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 1200px) {
+  #sign-up-form div[id^="comment"] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 #sign-up-form label {
   padding: 5px 0;
-  font-size: 10px;
+  font-size: clamp(7px, 1vw, 10px);
   left: 0;
   display: none;
   position: absolute;
@@ -169,8 +194,8 @@ input {
   -moz-animation: silo-fade 0.2s;
   animation: silo-fade 0.2s;
   z-index: 10;
-  top: 2px;
-  left: 10px;
+  top: 10px;
+  left: 20px;
 }
 :focus {
   outline: 0;
@@ -252,9 +277,27 @@ input {
 #foot {
   display: flex;
   flex-direction: column;
-  flex: 1 0;
-  width: 80%;
+  flex: 0.5 0;
+  padding: 10px;
   gap: 10px;
+}
+
+#foot p {
+  padding-bottom: 10px;
+}
+
+button {
+  border: var(--border-btn);
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn);
+  font-size: clamp(8px, 1.5vw, 13px);
+  line-height: 1.5;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#error-message {
+  display: none;
 }
 
 /*Animations*/

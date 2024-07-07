@@ -10,7 +10,7 @@
   <body>
     <div id="container">
       <div id="side-bar">
-        <div id="logo-text"><h1>CEE</h1></div>
+        <div id="logo-text"><h1>CEE SCANS</h1></div>
       </div>
       <div id="content">
         <div id="head">
@@ -20,7 +20,9 @@
           <br />
           <p>It only takes a minute.</p>
         </div>
+        
         <div id="sign-up-form">
+          <form action method="get" id="sign-up">
           <fieldset>
             <legend>Let's do this!</legend>
             <div id="comment-fname">
@@ -67,6 +69,7 @@
                 name="pnumber"
                 size="15"
                 maxlength="245"
+                pattern="[0-9]{10}|[0-9]{3}[\-. ][0-9]{3}[\-. ][0-9]{4}"
                 placeholder="Phone Number"
                 required
               />
@@ -80,6 +83,8 @@
                 id="password"
                 name="password"
                 size="15"
+                pattern="(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}" 
+               title="Must contain at least one number, one uppercase letter, one special character, and be at least 6 characters long"
                 maxlength="245"
                 placeholder="Password"
                 required
@@ -92,10 +97,13 @@
                 id="conPass"
                 name="conPass"
                 size="15"
+                pattern="(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}" 
+               title="Must contain at least one number, one uppercase letter, one special character, and be at least 6 characters long"
                 maxlength="245"
                 placeholder="Confirm Password"
                 required
               />
+              <span class="error" id="error-message">Passwords do not match.</span>
               <label for="conPass" data-help="you old?">Confirm Password</label>
             </div>
           </fieldset>
@@ -106,6 +114,7 @@
               Create Account
             </button>
           </div>
+        </form>
           <p>Already have an account? <a id="login" href="">Log in</a></p>
         </div>
       </div>
